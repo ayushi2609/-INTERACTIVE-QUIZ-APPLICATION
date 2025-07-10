@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeMaster Quiz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="theme-toggle">
+        <button id="theme-btn"><i class="fas fa-moon"></i></button>
+    </div>
+    
+    <div class="quiz-container">
+        <!-- Start Screen -->
+        <div id="start-screen" class="screen">
+            <div class="logo">
+                <i class="fas fa-code"></i>
+                <h1>CodeMaster Quiz</h1>
+            </div>
+            <p class="subtitle">Test your programming knowledge</p>
+            
+            <div class="settings">
+                <div class="setting-group">
+                    <label for="category">Category:</label>
+                    <select id="category" class="styled-select">
+                        <option value="all">All Categories</option>
+                        <option value="javascript">JavaScript</option>
+                        <option value="html">HTML</option>
+                        <option value="css">CSS</option>
+                        <option value="web">Web Development</option>
+                    </select>
+                </div>
+                
+                <div class="setting-group">
+                    <label for="difficulty">Difficulty:</label>
+                    <select id="difficulty" class="styled-select">
+                        <option value="all">All Levels</option>
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
+                
+                <div class="setting-group">
+                    <label for="question-count">Questions:</label>
+                    <input type="range" id="question-count" min="5" max="15" value="10" class="styled-slider">
+                    <span id="count-value">10</span>
+                </div>
+            </div>
+            
+            <button id="start-btn" class="btn primary">
+                <span>Start Quiz</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="screen hidden">
+            <div class="quiz-header">
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                
+                <div class="header-details">
+                    <div class="timer">
+                        <i class="fas fa-clock"></i>
+                        <span id="time">60</span>s
+                    </div>
+                    <div class="score">
+                        <i class="fas fa-star"></i>
+                        <span id="current-score">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-meta">
+                    <span class="question-count">
+                        Question <span id="current-question">1</span> of <span id="total-questions">10</span>
+                    </span>
+                    <span class="difficulty-badge" id="difficulty-badge">Medium</span>
+                </div>
+                
+                <h2 id="question-text">Question text goes here</h2>
+                
+                <div id="options-container" class="options-container">
+                    <!-- Options will be added dynamically -->
+                </div>
+            </div>
+
+            <div id="feedback" class="feedback hidden">
+                <div class="feedback-content">
+                    <div id="feedback-icon"></div>
+                    <p id="feedback-text"></p>
+                </div>
+            </div>
+
+            <div class="quiz-footer">
+                <button id="prev-btn" class="btn secondary">
+                    <i class="fas fa-arrow-left"></i>
+                    Previous
+                </button>
+                
+                <button id="next-btn" class="btn primary hidden">
+                    Next
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                
+                <button id="submit-btn" class="btn danger hidden">
+                    Submit Quiz
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="result-screen" class="screen hidden">
+            <div class="result-header">
+                <div class="result-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h2>Quiz Completed!</h2>
+                <p>You scored</p>
+                <div class="final-score">
+                    <span id="final-score">0</span>/<span id="max-score">0</span>
+                </div>
+            </div>
+            
+            <div class="result-details">
+                <div class="detail-card">
+                    <i class="fas fa-check-circle"></i>
+                    <span id="correct-answers">0</span> Correct
+                </div>
+                <div class="detail-card">
+                    <i class="fas fa-times-circle"></i>
+                    <span id="wrong-answers">0</span> Wrong
+                </div>
+                <div class="detail-card">
+                    <i class="fas fa-clock"></i>
+                    <span id="time-taken">0</span>s
+                </div>
+            </div>
+            
+            <div id="performance-chart" class="performance-chart">
+                <div class="chart-bar correct-bar" style="width: 0%"></div>
+                <div class="chart-bar wrong-bar" style="width: 0%"></div>
+            </div>
+            
+            <div id="performance-message" class="performance-message"></div>
+            
+            <div class="result-actions">
+                <button id="review-btn" class="btn secondary">
+                    <i class="fas fa-list"></i>
+                    Review Answers
+                </button>
+                <button id="restart-btn" class="btn primary">
+                    <i class="fas fa-redo"></i>
+                    Restart Quiz
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmation-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Submit Quiz?</h3>
+            <p>You still have <span id="remaining-questions">0</span> questions remaining.</p>
+            <p>Are you sure you want to submit?</p>
+            <div class="modal-actions">
+                <button id="cancel-submit" class="btn secondary">Cancel</button>
+                <button id="confirm-submit" class="btn danger">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
