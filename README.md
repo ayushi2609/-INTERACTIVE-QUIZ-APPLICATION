@@ -17,5 +17,8 @@ Project Deployment Link (Vercel): https://interactivequizapplication.vercel.app/
 
 Home Screen of my project:
 
+<img width="1920" height="1080" alt="Screenshot (452)" src="https://github.com/user-attachments/assets/3c9e55cd-24bd-4470-96a5-2c7a35629279" />
+
+
 
 
