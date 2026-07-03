@@ -12,4 +12,10 @@ Responsive Web Design
 
 Contact Details:
 Linkedin: https://www.linkedin.com/in/ayushi-bhatia-1822951a7/
-Project Deployment Link 
+
+Project Deployment Link (Vercel): https://interactivequizapplication.vercel.app/
+
+Home Screen of my project:
+
+
+
